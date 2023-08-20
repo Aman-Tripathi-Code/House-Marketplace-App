@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { db } from "../firebase.config";
+import { db } from "../firebase.config.js";
 import Spinner from "./Spinner";
 import { collection, query, limit, orderBy, getDocs } from "firebase/firestore";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -55,22 +55,22 @@ function Slider() {
           {listings.map(({ data, id }) => (
             <SwiperSlide
               key={id}
-              onClick={() => navigate(`/category/${data.type}/${id}`)}
+              onClick={() => navigate(`/category/${data?.type}/${id}`)}
             >
               <div
                 style={{
                   position: "relative",
-                  background: `url(${data.imageUrls[0]}) center no-repeat`,
+                  background: `url(${data?.imgUrls[0]}) center no-repeat`,
                   backgroundSize: "cover",
                   width: "100%",
                   height: "100%",
                 }}
                 className="swiperSlideDiv"
               >
-                <p className="swiperSlideText">{data.name}</p>
+                <p className="swiperSlideText">{data?.name}</p>
                 <p className="swiperSlidePrice">
-                  ${data.discountedPrice ?? data.regularPrice}{" "}
-                  {data.type === "rent" && "/ month"}
+                  ${data?.discountedPrice ?? data?.regularPrice}{" "}
+                  {data?.type === "rent" && "/ month"}
                 </p>
               </div>
             </SwiperSlide>

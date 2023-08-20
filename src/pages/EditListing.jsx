@@ -170,7 +170,7 @@ function EditListing() {
       });
     };
 
-    const imageUrls = await Promise.all(
+    const imgUrls = await Promise.all(
       [...images].map((image) => storeImage(image))
     ).catch((error) => {
       setLoading(false);
@@ -182,7 +182,7 @@ function EditListing() {
       ...formData,
       geolocation,
       location: address,
-      imageUrls,
+      imgUrls,
       timestamp: serverTimestamp(),
     };
     delete formDataCopy.address;

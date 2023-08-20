@@ -44,7 +44,7 @@ function Listing() {
         modules={[Pagination]}
         className="swiper-container"
       >
-        {listing.imageUrls.map((url, index) => (
+        {listing.imgUrls.map((url, index) => (
           <SwiperSlide key={index} className="swiper-container">
             <div
               className="swiperSlideDiv"
