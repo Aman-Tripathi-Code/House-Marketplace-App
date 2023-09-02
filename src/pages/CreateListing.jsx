@@ -71,7 +71,7 @@ function CreateListing() {
   const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    if (discountedPrice <= regularPrice) {
+    if (discountedPrice >= regularPrice) {
       setLoading(false);
       toast.error("Discounted price needs to be less than regular price");
       return;
